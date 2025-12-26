@@ -1,0 +1,67 @@
+<div class="container mt-4">
+
+    <div class="row mb-5">
+        <div class=" col-md-6 offset-3">
+            <div class="card p-3">
+                <div class="form-group">
+                    <label for="MovieTitle">Movie Title</label>
+                    <input type="text" #movieTitle class="form-control">
+                    <label for="MovieTitle">Movie Discription</label>
+                    <input type="text" #movieDiscription class="form-control">
+                    <label for="MovieTitle">Movie URL</label>
+                    <input type="text" #movieUrl class="form-control">
+                    <label for="">Director Name</label>
+                    <input type="text" #movieDirector class="form-control">
+                    <label for="">Rating</label>
+                     <select class="form-control" #movieRating>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        
+                     </select>
+                </div>
+                <button *ngIf="!isonEditMode" (click)="addMovie()" mat-raised-button color="primary">Add</button>
+                <button *ngIf="isonEditMode" (click)="onUpdate()" mat-raised-button color="primary">Update</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row m-0 d-flex" *ngIf="movie.length > 0 ; else nomovie">
+    <div *ngFor="let m of movie; trackBy : trackById" 
+    class="col-md-4 col-lg-3 mb-3">
+        <mat-card class="movie-card">
+            <mat-card-title class="movie-title">{{m.title}}</mat-card-title>
+            <mat-card-content>
+                <figure>
+                    <img class="img" mat-card-image [src]="m.imgUrl" [alt]="m.title" />
+
+                    <figcaption>
+                        <h4>{{m.title}}</h4>
+                        <p class="movie-desc">{{ m.description }}</p>
+                    </figcaption>
+                </figure>
+
+                <div class="rating d-flex align-item-center">
+                    <strong class="mt-1">Rating: {{ m.rating }}</strong>
+                    <mat-icon aria-hidden="false" aria-label="Example star icon" fontIcon="star"></mat-icon>
+                </div>
+                <p class="director">
+                    <strong>Director: {{ m.director }}</strong>
+                    <!-- ({{ m.releaseYear }}) -->
+                </p>
+            </mat-card-content>
+
+            <mat-card-actions class="d-flex justify-content-between">
+                <button (click)="onEdit(m)" mat-stroked-button color="primary">Edit</button>
+                <button (click)="onRemove(m.id)" mat-stroked-button color="warn">Remove</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+</div>
+<ng-template #nomovie>
+ <p class="alert alert-primary text-center">NO MOVIES !!!</p>
+</ng-template>

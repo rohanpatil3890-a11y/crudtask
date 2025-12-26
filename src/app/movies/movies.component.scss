@@ -1,0 +1,58 @@
+.movie-card {
+  max-width: 350px;
+  margin: 20px auto;
+  border-radius: 12px;
+  overflow: hidden;
+
+  .movie-title {
+    font-size: 20px;
+    font-weight: 700;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    height: 40px;
+  }
+
+  figure {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+
+
+  .img {
+    height: 250px;
+    object-fit: cover;
+  }
+
+  figcaption {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    height: 70%;
+    padding: 20px;
+    font-size: 14px;
+    color: #fff;
+    background-color: rgba(0, 0, 0, 0.6);
+    overflow-y: auto;
+    opacity: 0;
+    transform: translateY(120px);
+    transition: all 0.3s ease-in-out;
+  }
+
+  &:hover figcaption {
+    transform: translateY(0);
+    opacity: 1;
+
+  }
+
+  .rating {
+    color: #ff9800;
+    font-weight: 700;
+  }
+}
+
+label{
+  font-weight: 700;
+}
