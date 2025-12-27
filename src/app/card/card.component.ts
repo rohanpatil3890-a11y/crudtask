@@ -106,6 +106,9 @@ export class CardComponent implements OnInit {
       });
     }
   }
+  trackById(index : number, card : Icard){
+  return card.id
+  }
 
 
   onRemove(id: string) {

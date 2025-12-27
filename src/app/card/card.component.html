@@ -14,8 +14,8 @@
         </div>
     </div>
 </div>
-<div class="row m-0">
-    <div *ngFor="let c of topicsArr" class="col-md-3 mb-4">
+<div class="row m-0" *ngIf="topicsArr.length > 0; else noCard">
+    <div *ngFor="let c of topicsArr; trackBy : trackById" class="col-md-3 mb-4">
         <mat-card class="example-card">
             <mat-card-title matTooltip="{{c.title}}" matTooltipPosition="above"
                 class="card-title">{{c.title}}</mat-card-title>
@@ -29,3 +29,7 @@
         </mat-card>
     </div>
 </div>
+
+<ng-template #noCard>
+  <p class="alert alert-primary text-center">No Card</p>
+</ng-template>
