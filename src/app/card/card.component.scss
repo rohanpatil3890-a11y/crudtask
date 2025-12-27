@@ -1,0 +1,21 @@
+.example-card {
+    max-width: 350px;
+    margin: 20px auto;
+    // border-radius: 12px;
+    overflow: hidden;
+
+    .card-title {
+        font-size: 20px;
+        font-weight: 700;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        height: 40px;
+    }
+
+    .card-Desc{
+        height: 70px;
+        overflow-y: auto;
+
+    }
+}
